@@ -211,3 +211,4 @@ __marimo__/
 .conda/
 *secret*
 *__test__*
+/data
