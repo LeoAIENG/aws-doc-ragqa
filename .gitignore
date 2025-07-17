@@ -212,3 +212,9 @@ __marimo__/
 *secret*
 *__test__*
 /data
+
+# Data
+*research/data/raw/
+*research/data/processed
+*research/data/external
+*research/data/interim
