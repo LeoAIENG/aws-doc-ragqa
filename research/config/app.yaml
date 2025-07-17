@@ -1,0 +1,30 @@
+aws:
+  region: us-east-2
+  llm_model_id: us.anthropic.claude-3-haiku-20240307-v1:0
+  # llm_model_id: us.anthropic.claude-3-5-sonnet-20240620-v1:0
+  embedding_model_id: amazon.titan-embed-text-v2:0
+  temperature: 0.1
+  context_size: 200000
+  similarity_top_k: 3
+
+gemini:
+  # llm_model_id: models/gemini-1.5-flash
+  llm_model_id: models/gemini-2.5-pro
+  embedding_model_id: models/embedding-001
+  temperature: 0.1
+  similarity_top_k: 5
+
+eval:
+  region: us-east-2
+  llm_model_id: us.anthropic.claude-3-5-sonnet-20240620-v1:0
+  temperature: 0.0
+  context_size: 200000
+
+qdrant:
+  url: http://localhost:6333
+  collection:
+    aws: sagemaker_docs_v1
+    gemini: sagemaker_docs_v1.1
+
+docker:
+  container: 9ec1410b7a13

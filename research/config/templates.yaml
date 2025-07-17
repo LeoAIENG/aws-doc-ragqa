@@ -1,0 +1,30 @@
+prompt:
+  category_files: |
+    Please identify the categories of the AWS Documentation files by meaning, e.g. (tutorial, how-to-guides, code, properties, resource, etc..)
+    The file path is: {{ path }}
+    Please return a json with categories keys, and files paths as lists for each category.
+    Save the json on a category_files.json
+  
+  reduce_categories: |
+    Accessing the json "category_files.json" on path: {{ cat_path }} and considering the files on: {{ files_path }}
+    Please recategorize the following categories: (code, integration, marketplace, reinforcement-learning) on the most compatible (properties, resource, how-to-guide, tutorial, concepts, security).
+    Notice that at final we'll have only (properties, resource, how-to-guide, tutorial, concepts, security, geospatial) categories.
+    Save a new file new_category_files.json
+
+  doc_qa: |
+    You are given with relevant information about AWS Documentation. Answer the user query only based on the information provided. Don't make up stuff.
+
+    User Query: {{ query_str }}
+    Context: {{ context_str }}
+    Answer:
+  
+file:
+
+questions:
+  - What is SageMaker?
+  - What are all AWS regions where SageMaker is available?
+  - How to check if an endpoint is KMS encrypted?
+  - What are SageMaker Geospatial capabilities?
+
+Answer:
+  # If the provided context don't have the exatcly needed information, just answer that question cannot be answered from the given source / context.

@@ -1,0 +1,4 @@
+[core]
+    remote = aws-doc-ragqa
+['remote "aws-doc-ragqa"']
+    url = s3://projects-data-versioning/aws-doc-ragqa

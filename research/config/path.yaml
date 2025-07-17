@@ -1,0 +1,9 @@
+base: "./"
+data:
+  base: "data/"
+  external: "data/external"
+  interim: "data/interim"
+  processed: "data/processed"
+  raw: "data/raw"
+notebooks: "notebooks/"
+scripts: "scripts/"

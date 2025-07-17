@@ -1,0 +1,8 @@
+pandas:
+  _tuple:
+  - ['max_colwidth', 300]
+  - ['display.max_columns', 100]
+  - ['display.max_colwidth', 300]
+  - ['display.max_rows', 500]
+  _lambda:
+    - ['display.float_format', '%.5f']
