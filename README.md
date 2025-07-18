@@ -12,6 +12,11 @@ link: http://localhost:7860/
 path: research/  
 Notebooks, data analysis, chunking, indexing and evaluation  
 
+## Environment (UV):  
+```bash
+make requirements
+```
+
 ## Data Versioning (DVC):  
 paths:  
 - /data  
