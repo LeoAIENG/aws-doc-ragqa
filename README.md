@@ -6,6 +6,7 @@ This repo contains all steps for deploying an application for Retrieval Augmente
 ```bash
 docker-compose up
 ```
+link: http://localhost:7860/
 
 ## Research:  
 path: research/  
