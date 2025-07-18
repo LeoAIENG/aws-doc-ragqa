@@ -32,3 +32,8 @@ Deploy Lambda Function Unzip Handler:
 ```bash
 make deploy_unzip_lambda
 ```
+
+## Project Notion Documentation:
+Ask for access link!  
+[DOCS LINK](docs/Search_Documentation_Tool_POC)  
+[TIMELINE LINK](images/timeline.png)
