@@ -81,6 +81,8 @@ Evaluation: **Llamaindex /** W&B Weave
 ## TODO:
 
 - Improve Chunking, Build index pipeline, recheck LLM and evaluation cycle
+- Improve performance and refactor on app.py
+- Implement application tests
 - Implement CI/CD for AWS Lambda/ AWS ECR / AWS EKS
 - Implement FastAPI for concurrent access
 - Add more AWS documentation (out of scope of POC)
