@@ -1,0 +1,22 @@
+async_mode: true
+
+model:
+  provider: aws
+  name: claude-3.5-sonnet
+  type: llm
+
+model_eval:
+  provider: aws
+  name: claude-3.5-sonnet
+  type: llm_eval
+
+vector_db:
+  name: qdrant
+
+weave:
+  project: aws-doc-ragqa-demo
+
+s3:
+  bucket_name: aws-doc-ragqa
+  region_name: us-east-2
+  folder: sagemaker_documentation/

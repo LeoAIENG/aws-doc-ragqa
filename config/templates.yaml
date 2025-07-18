@@ -13,6 +13,7 @@ prompt:
 
   doc_qa: |
     You are given with relevant information about AWS Documentation. Answer the user query only based on the information provided. Don't make up stuff.
+    Just answer the question, don't say "Based on the information provided...".
 
     User Query: {{ query_str }}
     Context: {{ context_str }}

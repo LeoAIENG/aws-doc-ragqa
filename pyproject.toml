@@ -3,11 +3,30 @@ name = "aws-doc-ragqa"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
+authors = [
+  { name = "Leonardo Lara" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    
+]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "boto3==1.39.4",
+    "dotenv>=0.9.9",
+    "gradio>=5.38.0",
+    "llama-index-embeddings-bedrock==0.4.0",
+    "llama-index-embeddings-gemini>=0.3.2",
+    "llama-index-llms-anthropic>=0.6.19",
+    "llama-index-llms-bedrock>=0.3.8",
+    "llama-index-llms-gemini>=0.5.0",
+    "llama-index-readers-file>=0.4.11",
+    "llama-index-vector-stores-qdrant>=0.6.1",
+    "nest-asyncio>=1.6.0",
+    "weave>=0.51.56",
+]
 
 [dependency-groups]
 dev = [
     "dvc>=3.61.0",
-    "dvc-s3>=3.2.2",
 ]

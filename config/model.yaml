@@ -1,0 +1,41 @@
+aws:
+  llm:
+    claude-3-haiku:
+      model: us.anthropic.claude-3-haiku-20240307-v1:0
+      region_name: us-east-2
+      context_size: 200000
+    
+    claude-3.5-sonnet:
+      model: us.anthropic.claude-3-5-sonnet-20240620-v1:0
+      region_name: us-east-2
+      context_size: 200000
+
+  llm_eval:
+    claude-3.5-sonnet:
+      model: us.anthropic.claude-3-5-sonnet-20240620-v1:0
+      region_name: us-east-2
+      context_size: 200000
+
+  embed:
+    model_name: amazon.titan-embed-text-v2:0
+    region_name: us-east-2
+
+gemini:
+  llm:
+    gemini-1.5-flash:
+      model: models/gemini-1.5-flash
+    
+    gemini-2.5-pro:
+      model: models/gemini-1.5-flash
+
+  llm_eval:
+
+  embed:
+    model: models/embedding-001
+  
+gen_params:
+  temperature: 0.2
+
+gen_params_eval:
+  temperature: 0.0
+

@@ -1,0 +1,10 @@
+qdrant:
+  host: localhost
+  port: 6333
+  async_client: true
+  collection:
+    aws: sagemaker_docs_v1
+    gemini: sagemaker_docs_v1.1
+    
+retriever:
+  similarity_top_k: 5

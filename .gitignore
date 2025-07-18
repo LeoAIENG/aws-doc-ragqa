@@ -207,14 +207,14 @@ marimo/_lsp/
 __marimo__/
 
 # Custom
-/data/
 .conda/
 *secret*
-*__test__*
-/data
+/data/raw
+/data/interim
+/qdrant_data
 
 # Data
-*research/data/raw/
-*research/data/processed
-*research/data/external
-*research/data/interim
+*/data/raw/
+*/data/processed
+*/data/external
+*/data/interim

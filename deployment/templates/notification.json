@@ -1,0 +1,18 @@
+{
+  "LambdaFunctionConfigurations": [
+    {
+      "LambdaFunctionArn": "arn:aws:lambda:us-east-2:013218822765:function:s3-unzip-function",
+      "Events": ["s3:ObjectCreated:*"],
+      "Filter": {
+        "Key": {
+          "FilterRules": [
+            {
+              "Name": "suffix",
+              "Value": ".zip"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
