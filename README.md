@@ -23,6 +23,13 @@ uv run dvc pull
 ```
 
 ## Unzip S3 Lambda Handler
+Upload Zip to S3:
 ```bash
-./scripts/deploy.sh
+python ./scripts/upload_zip_to_s3.py
+```
+
+Deploy Lambda Function Unzip Handler:
+```bash
+chmod +x ./deployment/deploy.sh
+./deployment/deploy.sh
 ```
