@@ -11,8 +11,6 @@ docker-compose up
 path: research/  
 Notebooks, data analysis, chunking, indexing and evaluation  
 
-
-
 ## Data Versioning (DVC):  
 paths:  
 - /data  
@@ -22,4 +20,9 @@ Restore files:
 ```bash
 uv sync
 uv run dvc pull
+```
+
+## Unzip S3 Lambda Handler
+```bash
+./scripts/deploy.sh
 ```
