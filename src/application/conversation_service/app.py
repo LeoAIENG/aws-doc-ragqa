@@ -18,8 +18,8 @@ s3_utils = S3Utils(
 def create_interface():
     """Create the Gradio interface for the application."""
 
-    with gr.Blocks(title="AWS Documentation RAG-QA") as interface:
-        gr.Markdown("# AWS Documentation RAG-QA")
+    with gr.Blocks(title="AWS Documentation Search") as interface:
+        gr.Markdown("# AWS Documentation Search")
 
         with gr.Row():
             with gr.Column(scale=2):
