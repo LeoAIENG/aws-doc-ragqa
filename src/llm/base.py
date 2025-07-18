@@ -1,9 +1,9 @@
-import config as cfg
 import os
 
 from llm.bedrock_client import initialize_bedrock, initialize_bedrock_embed
 from llm.gemini_client import initialize_gemini, initialize_gemini_embed
 from utils.model_utils import model_config
+
 
 def set_model(model_provider: str, model_name: str, model_type: str):
     llm_cfg, embed_cfg = model_config(model_provider, model_name, model_type)

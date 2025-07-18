@@ -4,12 +4,11 @@ import joblib
 import json
 import re
 import yaml
-import multiprocessing
 from typing import Any
 from pathlib import PosixPath
-from subprocess import Popen, PIPE, STDOUT
 from types import SimpleNamespace
-from typing import Dict, Union
+from typing import Dict
+
 
 class REqual(str):
     """
@@ -22,6 +21,7 @@ class REqual(str):
         >>> REqual("foo123") == r"foo\d+"
         True
     """
+
     def __eq__(self, pattern):
         return re.fullmatch(pattern, self)
 
@@ -49,7 +49,7 @@ def save_obj(obj: Any, path: PosixPath, mkdir: bool = False, **kwargs) -> None:
     suf = path.suffix[1:]  # Filename Suffix
     if isinstance(obj, pd.DataFrame):  # Pandas DataFrame
         if suf != "pickle":
-            kwargs['index'] = 0
+            kwargs["index"] = 0
         method = f"to_{suf}" if suf not in ("xlsx", "xls") else "to_excel"
         try:
             exec = getattr(obj, method)
@@ -66,6 +66,7 @@ def save_obj(obj: Any, path: PosixPath, mkdir: bool = False, **kwargs) -> None:
                 path.write_text(json.dumps(obj, **kwargs))
             case _:
                 pass
+
 
 def load_obj(path: PosixPath, **kwargs) -> Any:
     """
@@ -103,19 +104,19 @@ def load_obj(path: PosixPath, **kwargs) -> Any:
                 raise AttributeError(e)
         case "jsonl":
             if kwargs.get("as_df"):
-                del(kwargs["as_df"])
+                del kwargs["as_df"]
                 return pd.read_json(path, lines=True, **kwargs)
             else:
                 return json.loads(path.read_text(), **kwargs)
         case "json":
             if kwargs.get("as_df"):
-                del(kwargs["as_df"])
+                del kwargs["as_df"]
                 return pd.read_json(path, **kwargs)
             else:
                 return json.loads(path.read_text(), **kwargs)
         case "pkl|pickle":
             if kwargs.get("as_df"):
-                del(kwargs["as_df"])
+                del kwargs["as_df"]
                 return pd.read_pickle(path, **kwargs)
             else:
                 return pkl.loads(path.read_bytes(), **kwargs)
@@ -127,6 +128,7 @@ def load_obj(path: PosixPath, **kwargs) -> Any:
             return path.read_text()
         case _:
             pass
+
 
 def convert_dict_to_namespace(_dict: Dict) -> SimpleNamespace:
     """
@@ -147,7 +149,7 @@ def convert_dict_to_namespace(_dict: Dict) -> SimpleNamespace:
     """
     if isinstance(_dict, dict):
         namespace = SimpleNamespace()
-        setattr(namespace, 'config', _dict)
+        setattr(namespace, "config", _dict)
         for key, value in _dict.items():
             if isinstance(value, dict):
                 setattr(namespace, key, convert_dict_to_namespace(value))
@@ -157,6 +159,7 @@ def convert_dict_to_namespace(_dict: Dict) -> SimpleNamespace:
     else:
         raise Exception("The input must be a dictionary")
     return _dict
+
 
 def convert_namespace_to_dict(namespace: SimpleNamespace) -> dict:
     """
@@ -179,7 +182,7 @@ def convert_namespace_to_dict(namespace: SimpleNamespace) -> dict:
         raise Exception("The input must be a SimpleNamespace")
     result = {}
     for key, value in vars(namespace).items():
-        if key == 'config':
+        if key == "config":
             continue  # Skip the 'config' attribute
         if isinstance(value, SimpleNamespace):
             result[key] = convert_namespace_to_dict(value)
@@ -187,7 +190,10 @@ def convert_namespace_to_dict(namespace: SimpleNamespace) -> dict:
             result[key] = value
     return result
 
-def process_paths(paths_namespace: SimpleNamespace, base_path: PosixPath, config_path=None):
+
+def process_paths(
+    paths_namespace: SimpleNamespace, base_path: PosixPath, config_path=None
+):
     """
     Recursively processes a SimpleNamespace object, converting all string attributes
     (assumed to be relative paths) into absolute Paths by joining them with a base path.
@@ -208,10 +214,10 @@ def process_paths(paths_namespace: SimpleNamespace, base_path: PosixPath, config
     items = [
         (key, getattr(paths_namespace, key))
         for key in dir(paths_namespace)
-        if not key.startswith('_') and not callable(getattr(paths_namespace, key))
+        if not key.startswith("_") and not callable(getattr(paths_namespace, key))
     ]
     for key, value in items:
-        if hasattr(value, '__dict__'):
+        if hasattr(value, "__dict__"):
             nested_namespace = SimpleNamespace()
             setattr(config_path, key, process_paths(value, base_path, nested_namespace))
         elif isinstance(value, str):

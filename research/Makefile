@@ -30,13 +30,13 @@ clean:
 .PHONY: lint
 lint:
 	ruff format --check
-	ruff check
+	ruff format
 
 ## Format source code with ruff
 .PHONY: format
 format:
 	ruff check --fix
-	ruff format
+	ruff check
 
 
 

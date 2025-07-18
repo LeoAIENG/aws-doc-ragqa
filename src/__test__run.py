@@ -1,10 +1,10 @@
 import sys
 import asyncio
 from pathlib import Path
+
 src_path = (Path.cwd() / "src").as_posix()
 sys.path.append(src_path)
 
-import config as cfg
 from application.rag_service.rag_pipeline import rag_pipe
 
 # rag_pipe = RagPipeline(

@@ -19,18 +19,16 @@ paths:
 
 Restore files:
 ```bash
-uv sync
-uv run dvc pull
+make sync_data_up
 ```
 
 ## Unzip S3 Lambda Handler
 Upload Zip to S3:
 ```bash
-python ./scripts/upload_zip_to_s3.py
+make upload_docs_zip_to_s3
 ```
 
 Deploy Lambda Function Unzip Handler:
 ```bash
-chmod +x ./deployment/deploy.sh
-./deployment/deploy.sh
+make deploy_unzip_lambda
 ```

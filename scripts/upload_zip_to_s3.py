@@ -19,7 +19,7 @@ s3_utils = S3Utils(
     bucket_name=bucket_name,
     region_name=region_name,
     aws_access_key_id=aws_access_key_id,
-    aws_secret_access_key=aws_secret_access_key
+    aws_secret_access_key=aws_secret_access_key,
 )
 
 file_name = "sagemaker_documentation.zip"
